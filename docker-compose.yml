@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  vault:
+    image: vault:1.12.1
+    restart: always
+    env_file:
+      - vault.env
+    cap_add:
+      - IPC_LOCK
+    ports:
+      - "8200:8200"
+    volumes:
+      - ./vault/config:/vault/config
+      - ./vault/file:/vault/file
+      - ./vault/logs:/vault/logs
+    entrypoint: vault server -config=/vault/config/vault.hcl
