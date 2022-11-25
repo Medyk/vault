@@ -1,0 +1,13 @@
+---
+
+- name: Intro to Ansible Playbooks
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Print value value
+      ansible.builtin.debug:
+        msg: "ansible/data/entry:USERNAME {{ lookup('community.hashi_vault.hashi_vault', 'ansible/data/entry:USERNAME') }}"
+    - name: Print value value
+      ansible.builtin.debug:
+        msg: "ansible/data/entry/db {{ lookup('community.hashi_vault.hashi_vault', 'ansible/data/entry/db') }}"

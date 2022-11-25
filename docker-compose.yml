@@ -1,6 +1,22 @@
 version: '3.8'
 
 services:
+  ansible:
+    profiles:
+      - ansible
+    build:
+      context: .
+      dockerfile: Dockerfile
+      tags:
+        - "medyk/ansible:6"
+        - "medyk/ansible:latest"
+    image: medyk/ansible:latest
+    volumes:
+      - ./inventory:/inventory
+      - ./playbooks:/playbooks
+    network_mode: host
+    command: ["bash"]
+
   vault:
     image: vault:1.12.1
     restart: always

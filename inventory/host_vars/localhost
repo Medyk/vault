@@ -1,0 +1,7 @@
+---
+
+ansible_hashi_vault_auth_method: token
+ansible_hashi_vault_token: <token>
+ansible_hashi_vault_token_validate: false
+ansible_hashi_vault_addr: http://host.docker.internal:8200
+ansible_hashi_vault_validate_certs: false
