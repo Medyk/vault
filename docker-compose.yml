@@ -14,6 +14,7 @@ services:
     volumes:
       - ./inventory:/inventory
       - ./playbooks:/playbooks
+    working_dir: /playbooks
     network_mode: host
     command: ["bash"]
 
