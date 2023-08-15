@@ -1,7 +1,11 @@
 ui = true
+disable_mlock = true
+enable_response_header_hostname = true
+enable_response_header_raft_node_id = true
 
-storage "file" {
-  path    = "/vault/file"
+storage "raft" {
+  path    = "/vault/raft"
+  node_id = "raft_node_1"
 }
 
 listener "tcp" {
@@ -15,4 +19,4 @@ telemetry {
 }
 
 api_addr = "http://0.0.0.0:8200"
-cluster_addr = "https://127.0.0.1:8201"
+cluster_addr = "http://127.0.0.1:8201"

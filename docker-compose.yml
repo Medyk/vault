@@ -19,7 +19,7 @@ services:
     command: ["bash"]
 
   vault:
-    image: vault:1.12.1
+    image: hashicorp/vault:1.14.0
     restart: always
     env_file:
       - vault.env
@@ -31,4 +31,5 @@ services:
       - ./vault/config:/vault/config
       - ./vault/file:/vault/file
       - ./vault/logs:/vault/logs
+      - ./vault/raft:/vault/raft
     entrypoint: vault server -config=/vault/config/vault.hcl
